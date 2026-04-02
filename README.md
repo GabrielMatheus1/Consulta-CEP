@@ -6,6 +6,10 @@ Aplicação web simples para consultar endereços a partir de um CEP brasileiro 
 
 O projeto consiste em uma interface web estática feita com HTML, CSS e JavaScript puro. O usuário informa um CEP, a aplicação valida o valor digitado, faz a requisição para a API e exibe os dados retornados do endereço.
 
+## Preview
+<img width="998" height="837" alt="image" src="https://github.com/user-attachments/assets/ad9eadbf-a364-4f02-927d-c0df28b60182" />
+
+
 ## Funcionalidades
 
 - Consulta de CEPs do Brasil via API ViaCEP
