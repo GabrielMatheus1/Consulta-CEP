@@ -1,83 +1,74 @@
-# Consulta CEP
+# Consulta de CEP
 
-Aplicação web simples para consultar endereços a partir de um CEP brasileiro usando a API pública ViaCEP.
+Uma aplicação web para localizar endereços brasileiros por meio do CEP. O projeto valida o valor informado, consulta a API ViaCEP e apresenta os dados do endereço na tela.
 
-## Visão Geral
+## Demonstração
 
-O projeto consiste em uma interface web estática feita com HTML, CSS e JavaScript puro. O usuário informa um CEP, a aplicação valida o valor digitado, faz a requisição para a API e exibe os dados retornados do endereço.
+[![Acessar projeto](https://img.shields.io/badge/Acessar%20projeto-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://gabrielmatheus1.github.io/Consulta-CEP/)
 
-## Preview
-<img width="998" height="837" alt="image" src="https://github.com/user-attachments/assets/ad9eadbf-a364-4f02-927d-c0df28b60182" />
-
+![Prévia da aplicação Consulta de CEP](./src/preview.png)
 
 ## Funcionalidades
 
-- Consulta de CEPs do Brasil via API ViaCEP
+- Consulta de CEPs brasileiros pela API ViaCEP
+- Remoção automática de caracteres não numéricos
 - Validação de campo vazio
-- Validação de CEP com exatamente 8 dígitos
-- Exibição de mensagem para CEP inválido
-- Interface visual moderna com layout centralizado
+- Validação de CEP com oito dígitos
+- Mensagem de erro para CEP inexistente
+- Exibição de CEP, logradouro, bairro, cidade e estado
+- Limpeza do campo após uma consulta concluída
 
 ## Tecnologias
 
 - HTML5
 - CSS3
 - JavaScript
-- API ViaCEP
+- Fetch API
+- ViaCEP
 
-## Estrutura do Projeto
+## Como funciona
+
+1. O JavaScript captura o valor digitado e mantém apenas os números.
+2. A aplicação verifica se o CEP contém oito dígitos.
+3. Uma requisição é enviada para `https://viacep.com.br/ws/{cep}/json/`.
+4. A resposta é convertida para JSON.
+5. Os dados do endereço ou uma mensagem de erro são exibidos na interface.
+
+
+## Estrutura do projeto
 
 ```text
-Consulta CEP/
+Consulta-CEP/
 ├── index.html
-├── README.md
-└── src/
-	├── script.js
-	└── style.css
+├── src/
+│   ├── icon.png
+│   ├── preview.png
+│   ├── script.js
+│   └── style.css
+└── README.md
 ```
 
-## Instalação
+## API utilizada
 
-Como este projeto é estático, não há necessidade de instalação de dependências.
+A consulta é realizada com a API pública [ViaCEP](https://viacep.com.br/).
 
+Exemplo de rota:
 
-## Como Funciona
+```text
+https://viacep.com.br/ws/01001000/json/
+```
 
-1. O valor digitado no campo é capturado pelo JavaScript.
-2. Todos os caracteres não numéricos são removidos.
-3. O sistema verifica se o CEP foi informado corretamente.
-4. A aplicação faz uma requisição para `https://viacep.com.br/ws/{cep}/json/`.
-5. Os dados do endereço são exibidos na tela.
+## Aprendizados
 
-## Exemplo de Retorno Exibido
+Este projeto foi desenvolvido para praticar:
 
-- CEP
-- Logradouro
-- Bairro
-- Cidade
-- Estado
+- Requisições assíncronas com `fetch`, `async` e `await`
+- Consumo de uma API REST
+- Validação e tratamento de dados digitados
+- Manipulação do DOM
+- Renderização de respostas JSON
 
-## Regras de Validação
-
-- Se o campo estiver vazio, a aplicação solicita que o usuário informe um CEP.
-- Se o CEP não tiver 8 dígitos, a aplicação exibe uma mensagem de erro.
-- Se a API retornar um CEP inexistente, a aplicação informa que o CEP é inválido.
-
-## Observações
-
-- O projeto depende de conexão com a internet para consultar a API.
-- Atualmente não há tratamento específico para falhas de rede ou indisponibilidade da API.
-
-## Melhorias planejadas
-
-- [ ] Buscar o CEP ao pressionar Enter
-- [ ] Adicionar máscara de preenchimento no campo
-- [ ] Exibir estado de carregamento durante a consulta
-- [ ] Tratar erros de conexão com mensagens mais clara
-
-## API Utilizada
-
-Documentação oficial: https://viacep.com.br/
 
 ## Autor
-Desenvolvido por Gabriel Izidoro para estudos de desenvolvimento web.
+
+Desenvolvido por [Gabriel Izidoro](https://github.com/GabrielMatheus1).
